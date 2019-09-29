@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/client/index.js',
+  mode: "development",
+  entry: "./src/client/index.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
@@ -13,18 +13,17 @@ module.exports = {
         test: /\.js|\.jsx$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       }
     ]
   },
   devServer: {
     proxy: {
-      '/': 'http://localhost:5000'
+      "/": "http://localhost:5000"
     }
   },
   resolve: {
-    extensions: ['.jsx', '.js']
-  },
-  
+    extensions: [".jsx", ".js"]
+  }
 };
