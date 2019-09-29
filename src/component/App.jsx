@@ -21,16 +21,13 @@ const Paragraph = styled.p`
 const Button = styled.button`
   background-color: bule;
   padding: 1em;
-  border-radius: 8px;
+  border-radius: 7px;
 `;
 
 const App = () => (
   <Wrapper>
-    <Title>Hello Stanley</Title>
+    <Title>Hello Stanley~~</Title>
     <Paragraph>haha</Paragraph>
-    <Paragraph>yoyo</Paragraph>
-    <Paragraph>cool man</Paragraph>
-    <Paragraph>what man!</Paragraph>
     <Button>click me!</Button>
   </Wrapper>
 );

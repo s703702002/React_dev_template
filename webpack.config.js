@@ -20,10 +20,12 @@ module.exports = {
     ]
   },
   devServer: {
+    index: "", // specify to enable root proxying
     proxy: {
-      "/": "http://localhost:5000",
-      hot: true
-    }
+      context: () => true,
+      target: "http://localhost:5000"
+    },
+    hot: true
   },
   resolve: {
     extensions: [".jsx", ".js"],
