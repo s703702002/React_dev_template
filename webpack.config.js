@@ -1,8 +1,9 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: "./src/client/index.js",
+  entry: ["react-hot-loader/patch", "./src/client/index.js"],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist")
@@ -20,10 +21,15 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      "/": "http://localhost:5000"
+      "/": "http://localhost:5000",
+      hot: true
     }
   },
   resolve: {
-    extensions: [".jsx", ".js"]
-  }
+    extensions: [".jsx", ".js"],
+    alias: {
+      "react-dom": "@hot-loader/react-dom"
+    }
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

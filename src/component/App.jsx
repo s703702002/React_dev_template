@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { hot } from "react-hot-loader/root";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -25,12 +26,13 @@ const Button = styled.button`
 
 const App = () => (
   <Wrapper>
-    <Title>Hello World!</Title>
+    <Title>Hello Stanley</Title>
     <Paragraph>haha</Paragraph>
     <Paragraph>yoyo</Paragraph>
-    <Paragraph>cool chill man</Paragraph>
-    <Button>click me</Button>
+    <Paragraph>cool man</Paragraph>
+    <Paragraph>what man!</Paragraph>
+    <Button>click me!</Button>
   </Wrapper>
 );
 
-export default App;
+export default hot(App);
