@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { hot } from "react-hot-loader/root";
+import Todo from "../container/Todo";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -29,6 +30,7 @@ const App = () => (
     <Title>Hello Stanley~~</Title>
     <Paragraph>haha</Paragraph>
     <Button>click me!</Button>
+    <Todo />
   </Wrapper>
 );
 
