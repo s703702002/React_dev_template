@@ -1,11 +1,15 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
     node: true,
+    "jest": true,
   },
   extends: [
-    'airbnb',
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier/react"
   ],
   globals: {
     Atomics: 'readonly',
@@ -22,5 +26,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
   },
 };
