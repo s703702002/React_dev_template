@@ -27,9 +27,9 @@ const Button = styled.button`
 
 const App = () => (
   <Wrapper>
-    <Title>Hello Stanley~~</Title>
+    <Title>Hello Stanley</Title>
     <Paragraph>haha</Paragraph>
-    <Button>click me!</Button>
+    <Button>click!</Button>
     <Todo />
   </Wrapper>
 );

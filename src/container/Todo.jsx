@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 const mapStateToProps = state => {
   return {
-    todo: state.todo
+    todos: state.todos,
+    counter: state.counter,
+    co: state.co
   };
 };
 
@@ -15,17 +17,48 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const Todo = ({ todo }) => {
+const Todo = ({ todos, counter, dispatch, co }) => {
   return (
     <div>
       <h4>redux todo?</h4>
-      <p>{todo[0]}</p>
+      <p>{todos[0]}</p>
+      <p>count: {counter}</p>
+      <p>co {co}</p>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch({
+            type: "INCREMENT"
+          });
+          dispatch({
+            type: "INCREMENT2"
+          });
+        }}
+      >
+        + count
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch({
+            type: "DECREMENT"
+          });
+          dispatch({
+            type: "DECREMENT2"
+          });
+        }}
+      >
+        - count
+      </button>
     </div>
   );
 };
 
 Todo.propTypes = {
-  todo: PropTypes.arrayOf(PropTypes.string).isRequired
+  todos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  counter: PropTypes.number.isRequired,
+  co: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 export default connect(

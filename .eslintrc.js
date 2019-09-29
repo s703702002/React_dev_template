@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    "jest": true,
+    jest: true,
   },
   extends: [
     "airbnb",
@@ -31,6 +31,7 @@ module.exports = {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "global-require": "off"
   },
 };

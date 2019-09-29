@@ -22,7 +22,8 @@ app.use(express.static(path.resolve(__dirname)));
 
 app.get("/", (req, res) => {
   const store = configureSotre({
-    todo: ["abcdefg"]
+    todos: ["abcdefg"],
+    counter: 3
   });
   const sheet = new ServerStyleSheet();
   try {
