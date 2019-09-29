@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import configureSotre from "../configureSotre";
 import App from "../component/App";
 
@@ -15,7 +16,9 @@ const store = configureSotre(preloadedState);
 const render = Component => {
   ReactDOM.hydrate(
     <Provider store={store}>
-      <Component />
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
     </Provider>,
     document.getElementById("root")
   );

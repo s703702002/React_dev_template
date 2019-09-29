@@ -2,6 +2,7 @@ import path from "path";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
+import { StaticRouter } from "react-router-dom";
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -20,22 +21,30 @@ app.use(cookieParser());
 
 app.use(express.static(path.resolve(__dirname)));
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   const store = configureSotre({
     todos: ["abcdefg"],
     counter: 3
   });
   const sheet = new ServerStyleSheet();
+  const context = {};
   try {
     const html = renderToString(
       <Provider store={store}>
         <StyleSheetManager sheet={sheet.instance}>
-          <App />
+          <StaticRouter location={req.url} context={context}>
+            <App />
+          </StaticRouter>
         </StyleSheetManager>
       </Provider>
     );
     const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
     const preloadedState = store.getState();
+
+    if (context.url) {
+      // Somewhere a `<Redirect>` was rendered
+      return res.redirect(301, context.url);
+    }
     const htmlStr = `
     <!doctype html>
     <html>

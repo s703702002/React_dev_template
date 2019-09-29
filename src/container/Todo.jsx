@@ -5,8 +5,7 @@ import PropTypes from "prop-types";
 const mapStateToProps = state => {
   return {
     todos: state.todos,
-    counter: state.counter,
-    co: state.co
+    counter: state.counter
   };
 };
 
@@ -17,21 +16,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const Todo = ({ todos, counter, dispatch, co }) => {
+const Todo = ({ todos, counter, dispatch }) => {
   return (
     <div>
       <h4>redux todo?</h4>
       <p>{todos[0]}</p>
       <p>count: {counter}</p>
-      <p>co {co}</p>
       <button
         type="button"
         onClick={() => {
           dispatch({
             type: "INCREMENT"
-          });
-          dispatch({
-            type: "INCREMENT2"
           });
         }}
       >
@@ -42,9 +37,6 @@ const Todo = ({ todos, counter, dispatch, co }) => {
         onClick={() => {
           dispatch({
             type: "DECREMENT"
-          });
-          dispatch({
-            type: "DECREMENT2"
           });
         }}
       >
@@ -57,7 +49,6 @@ const Todo = ({ todos, counter, dispatch, co }) => {
 Todo.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.string).isRequired,
   counter: PropTypes.number.isRequired,
-  co: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 
