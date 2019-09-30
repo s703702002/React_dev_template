@@ -43,7 +43,8 @@ app.get("*", (req, res) => {
 
     if (context.url) {
       // Somewhere a `<Redirect>` was rendered
-      return res.redirect(301, context.url);
+      res.redirect(301, context.url);
+      return;
     }
     const htmlStr = `
     <!doctype html>
