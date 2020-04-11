@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <Wrapper>
       <Title>Hello Stanley</Title>
-      <Paragraph>321123</Paragraph>
+      <Paragraph>Home page</Paragraph>
       <Button>click!</Button>
       <Todo />
       <Link to="/pagetwo">page2</Link>

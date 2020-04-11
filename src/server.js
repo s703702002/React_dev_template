@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import { StaticRouter } from "react-router-dom";
 import express from "express";
+import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import { Provider } from "react-redux";
@@ -12,6 +13,8 @@ import App from "./component/App";
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(helmet());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +46,8 @@ app.get("*", (req, res) => {
 
     if (context.url) {
       // Somewhere a `<Redirect>` was rendered
-      return res.redirect(301, context.url);
+      res.redirect(301, context.url);
+      return;
     }
     const htmlStr = `
     <!doctype html>
