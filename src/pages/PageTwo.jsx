@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Title = styled.h1`
-  font-size: 1.5em;
   color: palevioletred;
+  font-size: 1.5em;
 `;
 
 const Wrapper = styled.section`
@@ -22,7 +22,7 @@ const PageTwo = () => {
   return (
     <Wrapper>
       <Title>Hello Stanley</Title>
-      <Paragraph>I am page two</Paragraph>
+      <Paragraph>I am page 2</Paragraph>
       <Link to="/">Home</Link>
       <br />
       <Link to="/aavvb">Not Found page</Link>

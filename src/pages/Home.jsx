@@ -29,10 +29,10 @@ const Home = () => {
   return (
     <Wrapper>
       <Title>Hello Stanley</Title>
-      <Paragraph>haha</Paragraph>
+      <Paragraph>321123</Paragraph>
       <Button>click!</Button>
       <Todo />
-      <Link to="/pagetwo">pageTwo</Link>
+      <Link to="/pagetwo">page2</Link>
     </Wrapper>
   );
 };
