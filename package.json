@@ -51,7 +51,7 @@
     "dev:server": "nodemon",
     "build": "npm run build:client && npm run build:server",
     "build:client": "webpack --config webpack.prod.config.js",
-    "build:server": " babel src --out-dir dist"
+    "build:server": "babel src --out-dir dist"
   },
   "keywords": [
     "Custom react app develop environment"

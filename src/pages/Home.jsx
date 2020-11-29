@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Todo from "../container/Todo";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -26,13 +25,15 @@ const Button = styled.button`
 `;
 
 const Home = () => {
+  const onClick = () => {};
+
   return (
     <Wrapper>
       <Title>Hello Stanley</Title>
       <Paragraph>Home page</Paragraph>
-      <Button>click!</Button>
-      <Todo />
-      <Link to="/pagetwo">page2</Link>
+      <Button onClick={onClick}>click!</Button>
+
+      <Link to="/pagetwo">page two</Link>
     </Wrapper>
   );
 };

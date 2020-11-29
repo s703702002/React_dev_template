@@ -16,9 +16,7 @@ const port = process.env.PORT || 5000;
 
 app.use(helmet());
 
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -31,6 +29,7 @@ app.get("*", (req, res) => {
   });
   const sheet = new ServerStyleSheet();
   const context = {};
+
   try {
     const html = renderToString(
       <Provider store={store}>
@@ -41,6 +40,7 @@ app.get("*", (req, res) => {
         </StyleSheetManager>
       </Provider>
     );
+
     const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
     const preloadedState = store.getState();
 
@@ -49,6 +49,7 @@ app.get("*", (req, res) => {
       res.redirect(301, context.url);
       return;
     }
+
     const htmlStr = `
     <!doctype html>
     <html>
@@ -74,7 +75,6 @@ app.get("*", (req, res) => {
     res.type("html");
     res.send(htmlStr);
   } catch (error) {
-    // handle error
     console.error(error);
   } finally {
     sheet.seal();
