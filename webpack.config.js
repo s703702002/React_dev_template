@@ -1,21 +1,17 @@
 const path = require("path");
 const webpack = require("webpack");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: ["react-hot-loader/patch", "./src/client/index.js"],
+  entry: ["./src/client/index.js"],
+  devtool: "cheap-module-source-map",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        enforce: "pre",
-        loader: "eslint-loader",
-        exclude: /(node_modules|bower_components)/
-      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -31,13 +27,17 @@ module.exports = {
       context: () => true,
       target: "http://localhost:5000"
     },
+    open: true,
     hot: true
   },
   resolve: {
-    extensions: [".jsx", ".js"],
-    alias: {
-      "react-dom": "@hot-loader/react-dom"
-    }
+    extensions: [".jsx", ".js"]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ESLintPlugin({
+      context: "src",
+      extensions: [".jsx", ".js"]
+    })
+  ]
 };

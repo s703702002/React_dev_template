@@ -22,7 +22,7 @@ const PageTwo = () => {
   return (
     <Wrapper>
       <Title>Hello Stanley</Title>
-      <Paragraph>I am page 2</Paragraph>
+      <Paragraph>I am page two</Paragraph>
       <Link to="/">Home</Link>
       <br />
       <Link to="/aavvb">Not Found page</Link>

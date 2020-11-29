@@ -13,7 +13,7 @@ delete window.__PRELOADED_STATE__;
 
 const store = configureSotre(preloadedState);
 
-const render = Component => {
+const render = (Component) => {
   ReactDOM.hydrate(
     <Provider store={store}>
       <BrowserRouter>
