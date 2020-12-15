@@ -45,10 +45,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./dist/server.js",
-    "dev": "concurrently \"npm run dev:*\"",
-    "dev:client": "webpack serve",
-    "dev:server": "nodemon",
+    "start": "node dist/server.js",
+    "start:dev": "concurrently \"npm run start:dev:*\"",
+    "start:dev:client": "webpack serve",
+    "start:dev:server": "nodemon",
     "build": "concurrently \"npm run build:*\"",
     "build:client": "webpack --config webpack.prod.config.js",
     "build:server": "babel src --out-dir dist"
